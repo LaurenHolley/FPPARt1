@@ -57,6 +57,7 @@ def api_add_user():
 #new route for adding a restaurant using POST method
 @app.route('/api-fp1/add_restaurant',methods=['POST'])
 def api_add_restaurant():
+    conn = create_connection("cis3368.cemoodnlbqm2.us-east-2.rds.amazonaws.com", "admin","fall21CIS#", "cis3368fall21")
     request_data = request.get_json()
     newid = request_data['id']
     newname = request_data['make']
@@ -66,6 +67,7 @@ def api_add_restaurant():
 #new route for updating restaurant in restaurant table using PUT method
 @app.route('/api-fp1/update_restaurant',methods=['PUT'])
 def api_update_restaurant():
+    conn = create_connection("cis3368.cemoodnlbqm2.us-east-2.rds.amazonaws.com", "admin","fall21CIS#", "cis3368fall21")
     request_data = request.get_json()
     newid = request_data['id']
     newname = request_data['make']
@@ -78,6 +80,7 @@ def api_update_restaurant():
 #new route for deleting restaurant from restaurant table using DELETE method
 @app.route('/api-fp1/delete_restaurant',methods=['DELETE'])
 def api_delete_restaurant():
+    conn = create_connection("cis3368.cemoodnlbqm2.us-east-2.rds.amazonaws.com", "admin","fall21CIS#", "cis3368fall21")
     request_data = request.get_json()
     newid = request_data('newid')
     delete_state = "DELETE FROM restaurant_profile WHERE new_id = %s" % (new_id)
