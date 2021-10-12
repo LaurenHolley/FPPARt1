@@ -55,36 +55,34 @@ def api_add_user():
 
 #CRUD for Restaurant Tables
 #new route for adding a restaurant using POST method
-##@app.route('/api-fp1/add_restaurant',methods=['POST'])
-#def api_add_restaurant():
-    #request_data = request.get_json()
-    #newid = request_data['id']
-    #newmake = request_data['make']
-    #newmodel = request_data['model']
-   # newyear = request_data['year']
-    #newcolor = request_data['color']
-    #restaurant.append({'id':newid,'make':newmake,'model':newmodel,'year':newyear,'color':newcolor})
-    #return 'POST successful'
+@app.route('/api-fp1/add_restaurant',methods=['POST'])
+def api_add_restaurant():
+    request_data = request.get_json()
+    newid = request_data['id']
+    newname = request_data['make']
+    restaurant.append({'id':newid,'name':newname})
+    return 'POST successful'
 
 #new route for updating restaurant in restaurant table using PUT method
-#@app.route('/api-fp1/update_restaurant',methods=['PUT'])
-#def api_update_restaurant():
-    #request_data = request.get_json()
-    #new_user_id = request_data['id']
-    #new_fname = request_data['first_name']
-    #new_lname = request_data['last_name']
-    #restaurant.append({'id':new_user_id,'first_name':new_fname,'last_name':new_lname})
-    #return 'POST successful'
+@app.route('/api-fp1/update_restaurant',methods=['PUT'])
+def api_update_restaurant():
+    request_data = request.get_json()
+    newid = request_data['id']
+    newname = request_data['make']
+    sql_query = """UPDATE restaurant_profile SET newid = '%s' WHERE user_id = %s """ % (newid, which_restaurant)
+    sql_query3 = """UPDATE restaurant_profile SET newmake = '%s' WHERE user_id = %s """ % (newmake, which_restaurant)
+    execute_query(conn, sql_query)
+    execute_query(conn, sql_query3)
+    return 'PUT successful'
 
 #new route for deleting restaurant from restaurant table using DELETE method
-#@app.route('/api-fp1/delete_restaurant',methods=['DELETE'])
-#def api_delete_restaurant():
-    #request_data = request.get_json()
-    #new_user_id = request_data['id']
-    #new_fname = request_data['first_name']
-    #new_lname = request_data['last_name']
-    #restaurant.append({'id':new_user_id,'first_name':new_fname,'last_name':new_lname})
-    #return 'POST successful'
+@app.route('/api-fp1/delete_restaurant',methods=['DELETE'])
+def api_delete_restaurant():
+    request_data = request.get_json()
+    newid = request_data('newid')
+    delete_state = "DELETE FROM restaurant_profile WHERE new_id = %s" % (new_id)
+    execute_query(conn, delete_state)
+    return 'DELETE successful'
 
 #Random Restaurant Selection
 
