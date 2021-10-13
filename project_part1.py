@@ -88,6 +88,26 @@ def api_delete_restaurant():
     return 'DELETE successful'
 
 #Random Restaurant Selection
+#new route for selecting a restaurant from restaurant table based on which users are included in the party
+@app.route('/api-fp1/select_restaurant',methods=['GET'])
+def api_random_restaurant():
+    #create the connection to the db
+    conn = create_connection("cis3368.cemoodnlbqm2.us-east-2.rds.amazonaws.com", "admin","fall21CIS#", "cis3368fall21")
+    request_data = request.get_json()
+    results = []
+    #select the restaurants available in the table with the matching user ID
+    #this ensures that only those attending the dinner party will have their restaurants considered for choosing.
+    which_user = request_data['user_id']
+    sql = "SELECT restaurant_name FROM restaurants WHERE user_id = %s" % (which_user)
+    users_restaurants = execute_read_query(conn, sql)
+        #append all the restaurants for curent user to a list
+    for restaurant in users_restaurants:
+        results.append(restaurant)     
+    #from that list, use the random.choice method to pick a restaurant
+    selected_restaurant = random.choice(results)
+    #since it uses the GET method, it will just return the selection without changing anything in the db
+    return jsonify(selected_restaurant)
+
 
 app.run()
 
