@@ -7,17 +7,17 @@ app.set('view engine', 'ejs');
 
 // use res.render to load up an ejs view file
 
-// index page 
+// home page 
 app.get('/home', function(req, res) {
     res.render('pages/home');   
 });
 
-// about page
+// edit user and restaurant profile page
 app.get('/editpgs', function(req, res) {
     res.render('pages/about');
 });
 
-// about page
+// random restaurant selection page
 app.get('/randrest', function(req, res) {
     res.render('pages/randrest');
 });
