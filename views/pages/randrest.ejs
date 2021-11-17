@@ -10,6 +10,21 @@
 </header>
 
 <main>
+    <h1>Random Restaurant Selection!</h1>
+    <p>Please select users that will be present at your dinner party!</p>
+    <ul>
+        <% if (locals.users) { %>
+
+            <% locals.users.forEach(function(user) { %>
+                <li>
+                    <input type="checkbox"> <%= user.first_name %>
+                    
+                </li>
+            <% }); %>
+           
+        <% } %>
+        
+    </ul>
 
 </main>
 
