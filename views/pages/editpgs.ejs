@@ -10,8 +10,72 @@
 </header>
 
 <main>
+    <div>
+        <h3>Add User</h3>
+        <form action="/process_form" method="POST">
+            <div class="form-group">
+                <input type="text" id="first_name1" name="first_name1" class="form-control" placeholder="Enter your first name" required autofocus> 
+                <input type="text" id="last_name1" name="last_name1" class="form-control" placeholder="Enter your last name" required autofocus> 
+                <input type="submit" value = "Submit"> 
+            </div>
+        </form>
+    </div>
 
+    <h3>Modify User</h3>
+    <div>
+        <form action="/process_form" method="POST">
+            <div class="form-group">
+                <input type="number" id="id2" name="id2" class="form-control" placeholder="Enter your user ID" required autofocus> 
+                <input type="text" id="first_name2" name="first_name2" class="form-control" placeholder="Enter your first name" required autofocus> 
+                <input type="text" id="last_name2" name="last_name2" class="form-control" placeholder="Enter your last name" required autofocus> 
+                <input type="submit" value = "Submit">
+            </div>
+        </form>
+    </div>
+
+    <h3>Delete User</h3>
+    <div>
+        <form action="/process_form" method="POST">
+            <div class="form-group">
+                <input type="number" id="id3" name="id3" class="form-control" placeholder="Enter user ID to Delete" required autofocus> 
+                <input type="submit" value = "Submit">
+            </div>
+        </form>
+    </div>
+
+    <h3>Add Restaurant</h3>
+    <div>
+        <form action="/process_form" method="POST">
+            <div class="form-group">
+                <input type="number" id="id4" name="id3" class="form-control" placeholder="Enter user ID" required autofocus>
+                <input type="text" id="restaurant_name1" name="restaurant_name1" class="form-control" placeholder="Enter New Restaurant Name" required autofocus>  
+                <input type="submit" value = "Submit">
+            </div>
+        </form>
+    </div>
+
+    <h3>Modify Restaurant</h3>
+    <div>
+        <form action="/process_form" method="POST">
+            <div class="form-group">
+                <input type="number" id="id5" name="id5" class="form-control" placeholder="Enter user ID" required autofocus> 
+                <input type="text" id="restaurant_name2" name="restaurant_name2" class="form-control" placeholder="Enter Updated Restaurant Name" required autofocus>  
+                <input type="submit" value = "Submit">
+            </div>
+        </form>
+    </div>
+
+    <h1>Delete Restaurant</h1>
+    <div>
+        <form action="/process_form" method="POST">
+            <div class="form-group">
+                <input type="text" id="restaurant_name3" name="restaurant_name3" class="form-control" placeholder="Enter Restaurant Name to Delete" required autofocus>  
+                <input type="submit" value = "Submit">
+            </div>
+        </form>
+    </div>
 </main>
+
 
 <footer>
     <%- include('../partials/footer'); %>
