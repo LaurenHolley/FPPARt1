@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <div>
+        <h3>Add User</h3>
+        <form action="/add_user_form" method="POST">
+            <div class="form-group">
+                <input type="text" id="first_name1" name="first_name1" class="form-control" placeholder="Enter your first name" required autofocus> 
+                <input type="text" id="last_name1" name="last_name1" class="form-control" placeholder="Enter your last name" required autofocus> 
+                <input type="submit" value = "Submit"> 
+            </div>
+        </form>
+    </div>
+</main>
+
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>

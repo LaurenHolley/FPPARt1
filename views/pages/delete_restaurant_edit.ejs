@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include('../partials/header'); %>
+</header>
+
+<main>
+    <h1>Delete Restaurant</h1>
+    <div>
+        <form action="/delete_restaurant_form" method="POST">
+            <div class="form-group">
+                <input type="text" id="restaurant_name3" name="restaurant_name3" class="form-control" placeholder="Enter Restaurant Name to Delete" required autofocus>  
+                <input type="submit" value = "Submit">
+            </div>
+        </form>
+    </div>
+</main>
+
+
+<footer>
+    <%- include('../partials/footer'); %>
+</footer>
+
+</body>
+</html>
