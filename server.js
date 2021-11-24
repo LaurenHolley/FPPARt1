@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 var app = express();
 
 var selectedID = "";
-app.use(bodyParser.urlencoded()); 
+app.use(bodyParser.urlencoded({extended: true})); 
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
@@ -38,8 +38,36 @@ app.post('/add_user_form', function(req, res){
         first_name: first_name1,
         last_name: last_name1
     })
-    res.render('pages/add_restaurant_edit.ejs', {body: req.body});
+    res.render('pages/nuser_addrest.ejs', {body: req.body});
     });
+
+
+//this form is associated with adding a new restaurant, it will take the input from the user and 
+//call the add_restaurant API to update the database 
+/*app.post('/nuser_restaurant_form', function(req, res){
+    //variable to hold response for the id of the user who wants to add a restaurant
+    id7 = req.body.id7
+    //variable to hold response for restaurant names
+    restuarant_name10 = req.body.restaurant_name10
+    restuarant_name11 = req.body.restaurant_name11
+    restuarant_name12 = req.body.restaurant_name12
+    restuarant_name13 = req.body.restaurant_name13
+    restuarant_name14 = req.body.restaurant_name14
+    restuarant_name15 = req.body.restaurant_name15
+    restuarant_name16 = req.body.restaurant_name16
+    restuarant_name17 = req.body.restaurant_name17
+    restuarant_name18 = req.body.restaurant_name18
+    restuarant_name19 = req.body.restaurant_name19
+    for(let i = 10; i<=19; i++){
+        axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
+            user_id: id7,
+            new_restaurant: restaurant_name+i
+        })
+    }
+    // use res.render to load up an ejs view file
+    res.render('pages/edit_complete.ejs', {body: req.body});
+    });
+*/
 
 //render the individual edit page
 app.get('/update_user_edit', function(req, res) {
@@ -54,8 +82,8 @@ app.post('/update_user_form', function(req, res){
     first_name2 = req.body.first_name2
     //variable to hold response for users last name
     last_name2 = req.body.last_name2
-    axios.post(`http://127.0.0.1:5000//api-fp1/update_user`, {
-        which_user: id2,
+    axios.put(`http://127.0.0.1:5000//api-fp1/update_user`, {
+        user_id: user_id2,
         first_name: first_name2,  
         last_name: last_name2 
     })
@@ -72,9 +100,12 @@ app.get('/delete_user_edit', function(req, res) {
 app.post('/delete_user_form', function(req, res){
     //variable to hold response for the id of user to delete
     id3 = req.body.id3
+    user_id = parseInt(id3)
     // use res.render to load up an ejs view file
-    axios.post(`http://127.0.0.1:5000//api-fp1/delete_user`, {
-        user_id: id3
+    axios.delete(`http://127.0.0.1:5000//api-fp1/delete_user`, {
+        data: {
+            user_id : user_id
+        }
     })
     res.render('pages/edit_complete.ejs', {body: req.body});
     }); 
@@ -89,10 +120,10 @@ app.post('/add_restaurant_form', function(req, res){
     //variable to hold response for the id of the user who wants to add a restaurant
     id4 = req.body.id4
     //variable to hold response for users first name
-    restuarant_name1 = req.body.restaurant_name1
+    restaurant_name1 = req.body.restaurant_name1
     axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
         user_id: id4,
-        new_restaurant: restaurant_name1
+        restaurant_name: restaurant_name1
     })
     // use res.render to load up an ejs view file
     res.render('pages/edit_complete.ejs', {body: req.body});
@@ -108,10 +139,10 @@ app.post('/update_restaurant_form', function(req, res){
     //variable to hold response for the id of the user who wants to add a restaurant
     id5 = req.body.id5
     //variable to hold response for users first name
-    restuarant_name2 = req.body.restaurant_name2
-    axios.post(`http://127.0.0.1:5000//api-fp1/update_restaurant`, {
-        current_restaurant_id: id5,   
-        new_restaurant_name: restaurant_name2
+    restaurant_name2 = req.body.restaurant_name2
+    axios.put(`http://127.0.0.1:5000//api-fp1/update_restaurant`, {
+        restaurant_id: id5,   
+        restaurant_name: restaurant_name2
     })
     // use res.render to load up an ejs view file
     res.render('pages/edit_complete.ejs', {body: req.body});
@@ -125,14 +156,15 @@ app.get('/delete_restaurant_edit', function(req, res) {
 //call the delete_restaurant API to update the database 
 app.post('/delete_restaurant_form', function(req, res){
     //variable to hold response for users first name
-    restuarant_name3 = req.body.restaurant_name3
+    restaurant_name3 = req.body.restaurant_name3
     // use res.render to load up an ejs view file
-    axios.post(`http://127.0.0.1:5000//api-fp1/delete_restaurant`, {
-        restaurant_to_delete: restaurant_name3
+    axios.delete(`http://127.0.0.1:5000//api-fp1/delete_restaurant`, {
+        data: {
+            restaurant_name: restaurant_name3
+        }
     })
     res.render('pages/edit_complete.ejs', {body: req.body});
     });       
-
 
 // random restaurant selection page
 app.get('/randrest', function(req, res) {
