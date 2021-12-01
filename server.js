@@ -44,30 +44,79 @@ app.post('/add_user_form', function(req, res){
 
 //this form is associated with adding a new restaurant, it will take the input from the user and 
 //call the add_restaurant API to update the database 
-/*app.post('/nuser_restaurant_form', function(req, res){
+app.post('/nuser_restaurant_form', function(req, res){
     //variable to hold response for the id of the user who wants to add a restaurant
     id7 = req.body.id7
     //variable to hold response for restaurant names
-    restuarant_name10 = req.body.restaurant_name10
-    restuarant_name11 = req.body.restaurant_name11
-    restuarant_name12 = req.body.restaurant_name12
-    restuarant_name13 = req.body.restaurant_name13
-    restuarant_name14 = req.body.restaurant_name14
-    restuarant_name15 = req.body.restaurant_name15
-    restuarant_name16 = req.body.restaurant_name16
-    restuarant_name17 = req.body.restaurant_name17
-    restuarant_name18 = req.body.restaurant_name18
-    restuarant_name19 = req.body.restaurant_name19
-    for(let i = 10; i<=19; i++){
-        axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
-            user_id: id7,
-            new_restaurant: restaurant_name+i
-        })
+    r_name0 = req.body.restaurant_name10
+    r_name1 = req.body.restaurant_name11
+    r_name2 = req.body.restaurant_name12
+    r_name3 = req.body.restaurant_name13
+    r_name4 = req.body.restaurant_name14
+    r_name5 = req.body.restaurant_name15
+    r_name6 = req.body.restaurant_name16
+    r_name7 = req.body.restaurant_name17
+    r_name8 = req.body.restaurant_name18
+    r_name9 = req.body.restaurant_name19
+    //each restaurant the user wants to add has its own call to the add_restaurant API, this helps to keep
+    //the names of the restaurans clear and seperate 
+    axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
+        user_id: id7,
+        restaurant_name: r_name0
+    })
+    axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
+        user_id: id7,
+        restaurant_name: r_name1
+    })
+    axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
+        user_id: id7,
+        restaurant_name: r_name2
+    })
+    axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
+        user_id: id7,
+        restaurant_name: r_name3
+    })
+    axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
+        user_id: id7,
+        restaurant_name: r_name4
+    })
+    //There are 5 required restaurants for each user, but since they can add up to 10 there needs to
+    //be an if statement to determine if the user input more than the first 5, so it check the textbox 
+    //for restaurants 6, 7, 8, 9, and 10 to see whether or not there is data that needs to be added to the database
+    if (r_name5 != ''){
+    axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
+        user_id: id7,
+        restaurant_name: r_name5
+    })
+    }
+    if (r_name6 != ''){
+    axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
+        user_id: id7,
+        restaurant_name: r_name6
+    })
+    }
+    if (r_name7 != ''){
+    axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
+        user_id: id7,
+        restaurant_name: r_name7
+    })
+    }   
+    if (r_name8 != ''){
+    axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
+        user_id: id7,
+        restaurant_name: r_name8
+    })
+    }
+    if (r_name9 != ''){
+    axios.post(`http://127.0.0.1:5000//api-fp1/add_restaurant`, {
+        user_id: id7,
+        restaurant_name: r_name9
+    })
     }
     // use res.render to load up an ejs view file
     res.render('pages/edit_complete.ejs', {body: req.body});
     });
-*/
+
 
 //render the individual edit page
 app.get('/update_user_edit', function(req, res) {
@@ -78,14 +127,15 @@ app.get('/update_user_edit', function(req, res) {
 app.post('/update_user_form', function(req, res){
     //variable to hold response for the id of user to update name
     id2 = req.body.id2
+    user_id = parseInt(id2)
     //variable to hold response for users first name
     first_name2 = req.body.first_name2
     //variable to hold response for users last name
     last_name2 = req.body.last_name2
     axios.put(`http://127.0.0.1:5000//api-fp1/update_user`, {
-        user_id: user_id2,
-        first_name: first_name2,  
-        last_name: last_name2 
+        user_id: user_id, 
+        first_name: first_name2,
+        last_name: last_name2  
     })
     // use res.render to load up an ejs view file
     res.render('pages/edit_complete.ejs', {body: req.body});
@@ -170,14 +220,12 @@ app.post('/delete_restaurant_form', function(req, res){
 app.get('/randrest', function(req, res) {
     axios.get('http://127.0.0.1:5000/api-fp1/user_profile')
     .then((response)=>{
-        
         var users = response.data;
         console.log(users);
         res.render('pages/randrest', {
             users: users
         });
     });
-    
 });
 
 app.listen(8080);
