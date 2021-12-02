@@ -3,7 +3,7 @@
 <head>
     <%- include('../partials/head'); %>
 </head>
-<body class="container">
+<body class="container" style="font-family: cursive; background-color: steelblue; font-size: large; ">
 
 <header>
     <%- include('../partials/header'); %>
@@ -11,10 +11,10 @@
 
 <main>
 
-    <h3>Modify Restaurant</h3>
+    <h2 style="font-family: fantasy;">Modify Restaurant</h2>
     <div>
         <form action="/update_restaurant_form" method="POST">
-            <div class="form-group">
+            <div class="form-group" style="font-family: sans-serif;">
                 <input type="number" id="id5" name="id5" class="form-control" placeholder="Enter restaurant ID" required autofocus> 
                 <input type="text" id="restaurant_name2" name="restaurant_name2" class="form-control" placeholder="Enter Updated Restaurant Name" required autofocus>  
                 <input type="submit" value = "Submit">
