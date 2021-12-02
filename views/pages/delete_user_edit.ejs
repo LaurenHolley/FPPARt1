@@ -3,7 +3,7 @@
 <head>
     <%- include('../partials/head'); %>
 </head>
-<body class="container">
+<body class="container" style="background-color:rgb(0, 82, 235); font-size: large; font-family: cursive;" >
 
 <header>
     <%- include('../partials/header'); %>
@@ -11,10 +11,10 @@
 
 <main>
 
-    <h3>Delete User</h3>
+    <h2 style="font-family: fantasy;">Delete User</h2>
     <div>
         <form action="/delete_user_form" method="POST">
-            <div class="form-group">
+            <div class="form-group" style="font-family: sans-serif;">
                 <input type="int" id="id3" name="id3" class="form-control" placeholder="Enter user ID to Delete" required autofocus> 
                 <input type="submit" value = "Submit">
             </div>
