@@ -3,26 +3,21 @@
 <head>
     <%- include('../partials/head'); %>
 </head>
-<body class="container" style= "background-color: darkturquoise; text-decoration-color:greenyellow;">
+<body class="container" style= "background-color: rgb(49, 145, 200); font-size: large; font-family: cursive;">
+
 <header>
     <%- include('../partials/header'); %>
 </header>
 
 <main>
 
-    <h3>Add Restaurant</h3>
+    <h2 style="font-family: fantasy;">Add Restaurant</h2>
     <div>
         <form action="/add_restaurant_form" method="POST">
-            <div class="mb-3">
-                <label for="id4" class="form-label"> User Id </label>
+            <div class="form-group" style="font-family: sans-serif;">
                 <input type="number" id="id4" name="id4" class="form-control" placeholder="Enter user ID" required autofocus>
-            </div>
-             <div class="mb-3">
-                <label for="restaurant_name1" class="form-label"> Restaurant Name </label>
-                <input type="text" id="restaurant_name1" name="restaurant_name1" class="form-control" placeholder="Enter New Restaurant Name" required autofocus> 
-             </div>
-             <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <input type="text" id="restaurant_name1" name="restaurant_name1" class="form-control" placeholder="Enter New Restaurant Name" required autofocus>  
+                <input type="submit" value = "Submit">
             </div>
         </form>
     </div>
