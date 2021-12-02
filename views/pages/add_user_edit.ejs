@@ -3,7 +3,7 @@
 <head>
     <%- include('../partials/head'); %>
 </head>
-<body class="container" style= "background-color: lightcoral; font-size: large; font-family: cursive;">
+<body class="container" style= "background-color:rgb(57, 101, 196); font-size: large; font-family: cursive;">
 
 <header>
     <%- include('../partials/header'); %>
@@ -11,9 +11,10 @@
 
 <main>
     <div>
-        <h3>Add User</h3>
+        <h2 style="font-family: fantasy;">Add User</h2>
+        
         <form action="/add_user_form" method="POST">
-            <div class="form-group">
+            <div class="form-group" style="font-family: sans-serif; front">
                 <input type="text" id="first_name1" name="first_name1" class="form-control" placeholder="Enter your first name" required autofocus> 
                 <input type="text" id="last_name1" name="last_name1" class="form-control" placeholder="Enter your last name" required autofocus> 
                 <input type="submit" value = "Submit"> 
