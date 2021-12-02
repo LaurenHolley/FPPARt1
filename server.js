@@ -218,15 +218,33 @@ app.post('/delete_restaurant_form', function(req, res){
 
 // random restaurant selection page
 app.get('/randrest', function(req, res) {
+    const selected_users = [];
     axios.get('http://127.0.0.1:5000/api-fp1/user_profile')
     .then((response)=>{
         var users = response.data;
-        console.log(users);
+        for(i=0;i<users.length;i++){
+            selected_users.push(users[i].user_id);
+        }
+        console.log(selected_users);
+        let payload = {
+            user_id: [1,2,22,42,26]
+        }; 
+        axios({
+            url: 'http://127.0.0.1:5000//api-fp1/select_restaurant',
+            method: 'post',
+            data: payload
+        })
+        .then(function (response) {
+            var chosen_restaurant = response.data.restaurant_name;
+            
         res.render('pages/randrest', {
-            users: users
-        });
+            users: users,
+            chosen_restaurant: chosen_restaurant
+        })
+        });  
     });
 });
+
 
 app.listen(8080);
 console.log('8080 is the magic port');
