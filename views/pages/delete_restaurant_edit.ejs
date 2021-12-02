@@ -3,17 +3,17 @@
 <head>
     <%- include('../partials/head'); %>
 </head>
-<body class="container">
+<body class="container" style="font-family: cursive; background-color:rgb(8, 124, 219); font-size: large; ">
 
 <header>
     <%- include('../partials/header'); %>
 </header>
 
 <main>
-    <h1>Delete Restaurant</h1>
+    <h2 style="font-family: fantasy;">Delete Restaurant</h2>
     <div>
         <form action="/delete_restaurant_form" method="POST">
-            <div class="form-group">
+            <div class="form-group" style="font-family: sans-serif;">
                 <input type="text" id="restaurant_name3" name="restaurant_name3" class="form-control" placeholder="Enter Restaurant Name to Delete" required autofocus>  
                 <input type="submit" value = "Submit">
             </div>
