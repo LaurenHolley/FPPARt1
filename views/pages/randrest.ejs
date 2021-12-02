@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <%- include('../partials/head'); %>
-</head>
-<body class="container" style="font-family: cursive; background-color: slateblue;">
+</head><body class="container" style= "background-color: rgb(49, 145, 200); font-size: large; font-family: cursive;">
+
 
 <header>
     <%- include('../partials/header'); %>
@@ -19,15 +19,19 @@
                 <form>
                 <li>
                     <input name = "user" type="checkbox"> <%= user.first_name%>
-                    
                 </li>
                 
             <% }); %>
             <input type="submit" value = "Submit">
             </form>
         <% } %>
-        
     </ul>
+    <h2 style="font-family: fantasy;">The Randomly Selected Restaurant is:</h2>
+    <% if (locals.chosen_restaurant) { %>
+        <h1 style = color:white; font-size: large; font-family: cursive;"> <%= chosen_restaurant %> </h1> 
+    <% } %>
+   
+    
 
 </main>
 
