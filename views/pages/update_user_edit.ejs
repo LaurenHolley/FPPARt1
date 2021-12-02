@@ -3,20 +3,21 @@
 <head>
     <%- include('../partials/head'); %>
 </head>
-<body class="container">
+<body class="container" style= "background-color: rgb(60, 116, 219); font-family: cursive; font-size: large;" >
 
 <header>
     <%- include('../partials/header'); %>
 </header>
 
+
 <main>
     
 
-    <h3>Modify User</h3>
+    <h2 style = "font-family: fantasy;">Modify User</h2>
     <div>
         <form action="/update_user_form" method="POST">
-            <div class="form-group">
-                <input type="number" id="user_id2" name="user_id2" class="form-control" placeholder="Enter your user ID" required autofocus> 
+            <div class="form-group" style= "font-family: sans-serif;">
+                <input type="int" id="id2" name="id2" class="form-control" placeholder="Enter your user ID" required autofocus> 
                 <input type="text" id="first_name2" name="first_name2" class="form-control" placeholder="Enter your first name" required autofocus> 
                 <input type="text" id="last_name2" name="last_name2" class="form-control" placeholder="Enter your last name" required autofocus> 
                 <input type="submit" value = "Submit">
