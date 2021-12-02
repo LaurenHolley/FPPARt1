@@ -3,30 +3,34 @@
 <head>
     <%- include('../partials/head'); %>
 </head>
-<body class="container">
+<body class="container" style="font-family: cursive; background-color: slateblue;">
 
 <header>
     <%- include('../partials/header'); %>
 </header>
 
 <main>
-    <h1>Random Restaurant Selection!</h1>
+    <h1 style="font-family: fantasy;">Random Restaurant Selection!</h1>
     <p>Please select users that will be present at your dinner party!</p>
     <ul>
         <% if (locals.users) { %>
 
             <% locals.users.forEach(function(user) { %>
+                <form>
                 <li>
-                    <input type="checkbox"> <%= user.first_name %>
+                    <input name = "user" type="checkbox"> <%= user.first_name%>
                     
                 </li>
+                
             <% }); %>
-           
+            <input type="submit" value = "Submit">
+            </form>
         <% } %>
         
     </ul>
 
 </main>
+
 
 <footer>
     <%- include('../partials/footer'); %>
