@@ -142,8 +142,8 @@ def api_delete_restaurant():
 
 #Random Restaurant Selection
 #new route for selecting a restaurant from restaurant table based on which users are included in the party
-#use GET method because we want the endpoint to return an item from the db
-@app.route('/api-fp1/select_restaurant',methods=['GET'])
+#use POST method because we want the endpoint to take user input and return datafrom database
+@app.route('/api-fp1/select_restaurant',methods=['POST'])
 def api_random_restaurant():
     #create the connection to the db
     conn = create_connection("cis3368.cemoodnlbqm2.us-east-2.rds.amazonaws.com", "admin","fall21CIS#", "cis3368fall21")
